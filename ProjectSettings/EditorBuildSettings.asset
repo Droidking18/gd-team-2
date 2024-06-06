@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/OfficeSprint.unity
+    guid: 5eb64f4a2c923476bb1256703927ab37
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 0d260e95b0cde4b0394e92944c3ddf02
   m_configObjects: {}
