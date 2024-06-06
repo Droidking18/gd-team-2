@@ -19,7 +19,6 @@ public class PlayerScript : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        Debug.Log("Horizontal: " + horizontal);
 
         float movementAmount = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
 
