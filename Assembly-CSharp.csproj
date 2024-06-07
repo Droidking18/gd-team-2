@@ -60,6 +60,7 @@
      <Compile Include="Assets\Barrier Pack\Scripts\PostEffectsBase.cs" />
      <Compile Include="Assets\DenysAlmaral\CityPeopleLite\Demo_Scenes\Scripts\CityPeople.cs" />
      <Compile Include="Assets\Scripts\CameraController\MainCameraController.cs" />
+     <Compile Include="Assets\Scripts\MenuController\LoadPrefs.cs" />
      <Compile Include="Assets\Scripts\MenuController\MenuController.cs" />
      <Compile Include="Assets\Scripts\PlayerController\PlayerScript.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -688,6 +689,18 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.Editor.csproj">
+      <Project>{3789C522-63CA-5FD7-9041-6903AB927A6C}</Project>
+      <Name>Unity.PlayerPrefsEditor.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.EditorResources.csproj">
+      <Project>{DE5D215C-AC1F-5577-A90F-01223BA71BDE}</Project>
+      <Name>Unity.PlayerPrefsEditor.EditorResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PlayerPrefsEditor.Samples.SampleScene.csproj">
+      <Project>{ABE27D70-8D6B-F929-5894-E56D3377D794}</Project>
+      <Name>Unity.PlayerPrefsEditor.Samples.SampleScene</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

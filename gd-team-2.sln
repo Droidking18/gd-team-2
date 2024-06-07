@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{2F9D63D4-F576-55A4-1463-C4DC0A611B06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlayerPrefsEditor.Samples.SampleScene", "Unity.PlayerPrefsEditor.Samples.SampleScene.csproj", "{ABE27D70-8D6B-F929-5894-E56D3377D794}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlayerPrefsEditor.Editor", "Unity.PlayerPrefsEditor.Editor.csproj", "{3789C522-63CA-5FD7-9041-6903AB927A6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.PlayerPrefsEditor.EditorResources", "Unity.PlayerPrefsEditor.EditorResources.csproj", "{DE5D215C-AC1F-5577-A90F-01223BA71BDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +19,18 @@ Global
 		{2F9D63D4-F576-55A4-1463-C4DC0A611B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F9D63D4-F576-55A4-1463-C4DC0A611B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F9D63D4-F576-55A4-1463-C4DC0A611B06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABE27D70-8D6B-F929-5894-E56D3377D794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABE27D70-8D6B-F929-5894-E56D3377D794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABE27D70-8D6B-F929-5894-E56D3377D794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABE27D70-8D6B-F929-5894-E56D3377D794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3789C522-63CA-5FD7-9041-6903AB927A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3789C522-63CA-5FD7-9041-6903AB927A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3789C522-63CA-5FD7-9041-6903AB927A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3789C522-63CA-5FD7-9041-6903AB927A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5D215C-AC1F-5577-A90F-01223BA71BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5D215C-AC1F-5577-A90F-01223BA71BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5D215C-AC1F-5577-A90F-01223BA71BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5D215C-AC1F-5577-A90F-01223BA71BDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
