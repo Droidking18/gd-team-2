@@ -58,10 +58,10 @@
      <Compile Include="Assets\Barrier Pack\Scripts\ContrastStretch.cs" />
      <Compile Include="Assets\Barrier Pack\Scripts\GlobalFog.cs" />
      <Compile Include="Assets\Barrier Pack\Scripts\PostEffectsBase.cs" />
-     <Compile Include="Assets\DenysAlmaral\CityPeopleLite\Demo_Scenes\Scripts\CityPeople.cs" />
      <Compile Include="Assets\Scripts\CameraController\MainCameraController.cs" />
      <Compile Include="Assets\Scripts\MenuController\LoadPrefs.cs" />
      <Compile Include="Assets\Scripts\MenuController\MenuController.cs" />
+     <Compile Include="Assets\Scripts\PlayerController\CityPeople.cs" />
      <Compile Include="Assets\Scripts\PlayerController\PlayerScript.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

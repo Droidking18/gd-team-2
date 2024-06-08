@@ -19,6 +19,8 @@ public class MainCameraController : MonoBehaviour
         // Get the current game state
         var state = Vcam.State;
 
+        Debug.Log(state);
+
         // Extract the rotation quaternion from the state
         var rotation = state.FinalOrientation;
 

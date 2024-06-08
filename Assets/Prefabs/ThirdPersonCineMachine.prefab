@@ -30,7 +30,6 @@ Transform:
   m_LocalRotation: {x: 0.3232659, y: -0.00000007186669, z: 0.000000024550193, w: 0.9463082}
   m_LocalPosition: {x: -4.6440506, y: -3.8999977, z: 3.0482786}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8276030855967411706}
   m_RootOrder: 0
@@ -121,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RecenterTarget: 2
   m_VerticalAxis:
-    Value: 0
+    Value: -0
     m_SpeedMode: 1
     m_MaxSpeed: 3
     m_AccelTime: 0.2
@@ -145,7 +144,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_HorizontalAxis:
-    Value: 0
+    Value: -0
     m_SpeedMode: 1
     m_MaxSpeed: 3
     m_AccelTime: 0.2
@@ -195,13 +194,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8276030855967411704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.298147, y: 1.3910122, z: 25.089176}
+  m_LocalPosition: {x: -115.36, y: 51.911003, z: -70.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8276030855778169938}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8276030855967411707
 MonoBehaviour:
@@ -229,11 +227,7 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 0
     LensShift: {x: 0, y: 0}
-    GateFit: 2
-    FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 1

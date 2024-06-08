@@ -16,15 +16,19 @@ namespace CityPeople
             {
                 myClips = animator.runtimeAnimatorController.animationClips;
                 PlayAnyClip();
-                StartCoroutine(ShuffleClips());
+                //StartCoroutine(ShuffleClips());
+            }
+            else
+            {
+                Debug.Log("No animator found in component");
             }
 
         }
 
         void PlayAnyClip()
         {
-            var cl = myClips[Random.Range(0, myClips.Length)];
-            animator.CrossFadeInFixedTime(cl.name, 1.0f, -1, Random.value * cl.length);
+            var clips = myClips[Random.Range(0, myClips.Length)];
+            animator.CrossFadeInFixedTime(clips.name, 1.0f, -1, Random.value * clips.length);
         }
 
         IEnumerator ShuffleClips()
