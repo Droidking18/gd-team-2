@@ -55,8 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerPrefsEditor\Samples\SampleScene\PlayerPrefsController.cs" />
-     <None Include="Assets\PlayerPrefsEditor\Samples\SampleScene\Unity.PlayerPrefsEditor.Samples.SampleScene.asmdef" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Samples\SampleScene\PlayerPrefsController.cs" />
+     <None Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Samples\SampleScene\Unity.PlayerPrefsEditor.Samples.SampleScene.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/CityVoxelPack/DemoScenes/Demo.unity
+- path: Assets/Scenes/Office Sprint.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

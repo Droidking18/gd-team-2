@@ -55,16 +55,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\Dialogs\TextFieldDialog.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\Dialogs\TextValidator.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\Extensions\CenterOnWindow.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntry.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntryHolder.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceStorageAccessor.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\PreferencesEditorWindow.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\PreferencesEditor\RegistryMonitor.cs" />
-     <Compile Include="Assets\PlayerPrefsEditor\Editor\Styles.cs" />
-     <None Include="Assets\PlayerPrefsEditor\Editor\Unity.PlayerPrefsEditor.Editor.asmdef" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\Dialogs\TextFieldDialog.cs" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\Dialogs\TextValidator.cs" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\Extensions\CenterOnWindow.cs" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntry.cs" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceEntryHolder.cs" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\PreferencesEditor\PreferenceStorageAccessor.cs" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\PreferencesEditor\PreferencesEditorWindow.cs" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\PreferencesEditor\RegistryMonitor.cs" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\Styles.cs" />
+     <None Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor\Unity.PlayerPrefsEditor.Editor.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

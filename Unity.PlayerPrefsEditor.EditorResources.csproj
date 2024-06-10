@@ -55,8 +55,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\PlayerPrefsEditor\Editor Resources\ImageManager.cs" />
-     <None Include="Assets\PlayerPrefsEditor\Editor Resources\Unity.PlayerPrefsEditor.EditorResources.asmdef" />
+     <Compile Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor Resources\ImageManager.cs" />
+     <None Include="Assets\OfficeSprint\MenuScene\PlayerPrefsEditor\Editor Resources\Unity.PlayerPrefsEditor.EditorResources.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
