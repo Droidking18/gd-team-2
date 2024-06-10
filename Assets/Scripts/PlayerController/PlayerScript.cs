@@ -3,26 +3,39 @@
 public class PlayerScript : MonoBehaviour
 {
     [Header("Player Movement")]
-    public float movementSpeed = 5f; // Adjusted for Character Controller
-    public float rotationSpeed = 100f; // Adjusted for Character Controller
-    public float jumpHeight = 1f;    // Height of the jump
+    //Character movement speed
+    public float movementSpeed = 5f;
+    //Character rotation speed 
+    public float rotationSpeed = 100f;
+    // Character jump height
+    public float jumpHeight = 8f;   
 
+    // Animator component
     [Header("Player animator")]
     public Animator animator;
 
-    [Header("Player Ground Check")] // For jump logic
-    public Transform groundCheck;   // Point to check if the player is grounded
+    // Gravity and ground check for jump
+    [Header("Player Ground Check")]
+    // Character controller component
+    public CharacterController controller;
+    // Check to see if character is grounded based on a groundCheck gameobject below character feet
+    public Transform groundCheck;
+    // Ground distance from character
     public float groundDistance = 0.4f;
+    // Ground layer
     public LayerMask groundMask;
 
-    public CharacterController controller;
-    private Vector3 velocity;         // To store the vertical velocity (for gravity)
+    // Stores vertical velocity for gravity force
+    private Vector3 velocity;
+    // Returns true if character is touching the ground
     private bool isGrounded;
-    private float gravity = -9.81f; // Standard Earth gravity
+    // Standard Earth gravity
+    private readonly float gravity = -9.81f; 
 
     void Start()
     {
-        controller = GetComponent<CharacterController>(); // Get the Character Controller component
+        // Gets character controller component
+        controller = GetComponent<CharacterController>(); 
     }
 
     private void Update()
@@ -50,7 +63,7 @@ public class PlayerScript : MonoBehaviour
 
         // Movement
         Vector3 moveDirection = transform.forward * vertical + transform.right * horizontal;
-        moveDirection = Vector3.ClampMagnitude(moveDirection, 1f);  // Ensure consistent speed diagonally
+        moveDirection = Vector3.ClampMagnitude(moveDirection, 1f).normalized; 
 
         controller.Move(moveDirection * movementSpeed * Time.deltaTime);
 
@@ -63,7 +76,8 @@ public class PlayerScript : MonoBehaviour
         // Jumping (only when grounded)
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity); // Calculate jump velocity based on desired height
+            // Calculate jump velocity based on desired height
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         // Animation

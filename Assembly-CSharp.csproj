@@ -61,7 +61,6 @@
      <Compile Include="Assets\Scripts\CameraController\CameraController.cs" />
      <Compile Include="Assets\Scripts\MenuController\LoadPrefs.cs" />
      <Compile Include="Assets\Scripts\MenuController\MenuController.cs" />
-     <Compile Include="Assets\Scripts\PlayerController\CityPeople.cs" />
      <Compile Include="Assets\Scripts\PlayerController\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\WorldController\CreateCollidersChildren.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
