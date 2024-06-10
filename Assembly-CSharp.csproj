@@ -58,11 +58,12 @@
      <Compile Include="Assets\Barrier Pack\Scripts\ContrastStretch.cs" />
      <Compile Include="Assets\Barrier Pack\Scripts\GlobalFog.cs" />
      <Compile Include="Assets\Barrier Pack\Scripts\PostEffectsBase.cs" />
-     <Compile Include="Assets\Scripts\CameraController\MainCameraController.cs" />
+     <Compile Include="Assets\Scripts\CameraController\CameraController.cs" />
      <Compile Include="Assets\Scripts\MenuController\LoadPrefs.cs" />
      <Compile Include="Assets\Scripts\MenuController\MenuController.cs" />
      <Compile Include="Assets\Scripts\PlayerController\CityPeople.cs" />
      <Compile Include="Assets\Scripts\PlayerController\PlayerScript.cs" />
+     <Compile Include="Assets\Scripts\WorldController\CreateCollidersChildren.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -657,6 +658,9 @@
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Cinemachine">
+ <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
@@ -675,17 +679,14 @@
  <Reference Include="Unity.Rider.Editor">
  <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="com.unity.cinemachine.editor">
+ <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
- </Reference>
- <Reference Include="Cinemachine">
- <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
- </Reference>
- <Reference Include="com.unity.cinemachine.editor">
- <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

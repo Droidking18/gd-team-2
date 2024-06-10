@@ -37,6 +37,7 @@ public class MenuController : MonoBehaviour
     private bool _isFullScreen;
     private float _brightnessLevel;
 
+
     [Header("Levels to load")]
     public string newGameLevel;
     private string levelToLoad;
@@ -145,7 +146,8 @@ public class MenuController : MonoBehaviour
         if (invertYToggle.isOn)
         {
             PlayerPrefs.SetInt("masterInverter", 1);
-            // Invert Y
+            
+
         }
         else
         {
@@ -170,6 +172,7 @@ public class MenuController : MonoBehaviour
     public void SetFullScreen(bool isFullScreen)
     {
         _isFullScreen = isFullScreen;
+
     }
 
     public void GraphicsApply()
@@ -235,6 +238,7 @@ public class MenuController : MonoBehaviour
         confirmationPrompt.SetActive(false);
 
     }
+
 }
 
 
