@@ -34,6 +34,9 @@ public class PlayerScript : MonoBehaviour
     // Standard Earth gravity
     private readonly float gravity = -9.81f;
 
+    [SerializeField]
+    public AudioSource soundTrack;
+
 
     void Start()
     {
@@ -41,6 +44,8 @@ public class PlayerScript : MonoBehaviour
         controller = GetComponent<CharacterController>();
         // Gets character controller step offset
         ccStepOffset = controller.stepOffset;
+
+        soundTrack = GetComponent<AudioSource>();
     }
 
 
@@ -59,6 +64,8 @@ public class PlayerScript : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         PlayerMovement();
+
+        soundTrack.Play();
 
         // Apply gravity if not grounded
         if (!controller.isGrounded)

@@ -64,6 +64,7 @@
      <Compile Include="Assets\OfficeSprint\Scripts\MenuController\MenuController.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\PlayerController\PlayerScript.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\PlayerController\PlayerScriptCC.cs" />
+     <Compile Include="Assets\OfficeSprint\Scripts\SoundController\SoundController.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\WorldController\BuildingColorChange.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\WorldController\CreateCollidersChildren.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
