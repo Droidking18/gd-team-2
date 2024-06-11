@@ -7,27 +7,17 @@ using TMPro;
 
 public class MenuController : MonoBehaviour
 {
+    [Header("Continue")]
+    private int sceneToContinue;
+
     [Header("Volume settings")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private float defaultVolume = 1.0f;
+    [SerializeField] private AudioListener audioListener;
 
     [Header("Confirmation")]
     [SerializeField] private GameObject confirmationPrompt = null;
-
-    [Header("Gameplay settings")]
-    [SerializeField] private TMP_Text controllerSensitivityTextValue = null;
-    [SerializeField] private Slider controllerSensitivitySlider = null;
-    [SerializeField] private int defaultSensitivity = 4;
-    public int mainControllerSensitivity = 4;
-
-    [Header("Toggle settings")]
-    [SerializeField] private Toggle invertYToggle = null;
-
-    [Header("Graphics settings")]
-    [SerializeField] private Slider brightnessSlider = null;
-    [SerializeField] private TMP_Text brightnessTextValue = null;
-    [SerializeField] private float defaultBrightness = 1;
 
     [Space(10)]
     [SerializeField] private TMP_Dropdown qualityDropdown;
@@ -35,8 +25,6 @@ public class MenuController : MonoBehaviour
 
     private int _qualityLevel;
     private bool _isFullScreen;
-    private float _brightnessLevel;
-
 
     [Header("Levels to load")]
     public string newGameLevel;
@@ -51,6 +39,14 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+        //Find the persistent AudioListener from OfficeSprint MainCamera
+        audioListener = FindObjectOfType<AudioListener>(); 
+
+        if (audioListener == null)
+        {
+            Debug.LogWarning("AudioListener not found!");
+        }
+
         resolutions = Screen.resolutions;
         resolutionDropdow.ClearOptions();
 
@@ -81,6 +77,23 @@ public class MenuController : MonoBehaviour
 
     }
 
+    public void ContinueDialogYes()
+    {
+
+        sceneToContinue = PlayerPrefs.GetInt("SavedGame");
+
+        if(sceneToContinue >= 0)
+        {
+            SceneManager.LoadScene(sceneToContinue);
+        }
+        else
+        {
+            Debug.Log("No saved scene");
+            // Controls the no saved game dialog appearing
+            DialogNoGameSaved.SetActive(true);
+        }
+    }
+
     public void NewGameDialogYes()
     {
         // Loads the game scene (OfficeSprint)
@@ -93,7 +106,7 @@ public class MenuController : MonoBehaviour
         {
             levelToLoad = PlayerPrefs.GetString("OfficeSprint");
             // To create a level to push into this filed SavedLevel
-            //PlayerPrefs.setString("SavedLevel", yourlevel);
+            //PlayerPrefs.setString("SavedGame", yourlevel);
             SceneManager.LoadScene(levelToLoad);
         }
         else
@@ -104,7 +117,8 @@ public class MenuController : MonoBehaviour
     }
 
     public void ExitButtonYes()
-    { 
+    {
+        Debug.Log("Exit game confirmed");
         Application.Quit();
     }
 
@@ -120,10 +134,12 @@ public class MenuController : MonoBehaviour
     // Method that controls the volume  
     public void SetVolume(float volume)
     {
-        //Changes all the audio in the game (0, 1)
-        AudioListener.volume = volume;
-        // Update the volume value text
-        volumeTextValue.text = volume.ToString("0.0");
+        // Check if AudioListener was found
+        if (audioListener != null)
+        {
+            AudioListener.volume = volume;
+            volumeTextValue.text = volume.ToString("0.0");
+        }
     }
 
     //Applies chosen volume
@@ -134,59 +150,23 @@ public class MenuController : MonoBehaviour
         StartCoroutine(ConfirmationBox());
 
     }
-
-    public void SetControllerSensitivity(float sensitivity)
-    {
-        mainControllerSensitivity = Mathf.RoundToInt(sensitivity);
-        controllerSensitivityTextValue.text = sensitivity.ToString("0");
-
-    }
-    public void GameplayApply()
-    {
-        if (invertYToggle.isOn)
-        {
-            PlayerPrefs.SetInt("masterInverter", 1);
-            
-
-        }
-        else
-        {
-            PlayerPrefs.SetInt("masterInverter", 0);
-            // Not invert Y
-        }
-        PlayerPrefs.SetFloat("masterSensitivity", mainControllerSensitivity);
-        StartCoroutine(ConfirmationBox());
-    }
-
-    public void SetBrightness(float brightness)
-    {
-        _brightnessLevel = brightness;
-        brightnessTextValue.text = brightness.ToString("0.0");
-
-    }
+    // Sets quality level from dropdown options (Low,Medium,High, Ultra)
     public void SetQuality(int qualityIndex)
     {
         _qualityLevel = qualityIndex;
+        Debug.Log("_qualityLevel: " + _qualityLevel);
+        Debug.Log("qualityIndex: " + qualityIndex);
 
     }
-    public void SetFullScreen(bool isFullScreen)
-    {
-        _isFullScreen = isFullScreen;
-
-    }
-
     public void GraphicsApply()
     {
-        PlayerPrefs.SetFloat("masterBrightness", _brightnessLevel);
-        //Change brightness with post processing or something else
-
         //Here we can set the quality level based on the settings
         PlayerPrefs.SetInt("masterQuality", _qualityLevel);
         // Changes the quality setting to the index we changed it to
         QualitySettings.SetQualityLevel(_qualityLevel);
 
         PlayerPrefs.SetInt("masterFullscreen", (_isFullScreen ? 1 : 0));
-        Screen.fullScreen = _isFullScreen;
+        Screen.fullScreen = fullScreenToggle.isOn;
 
         StartCoroutine(ConfirmationBox());
     }
@@ -200,23 +180,10 @@ public class MenuController : MonoBehaviour
             volumeTextValue.text = defaultVolume.ToString("0.0");
             VolumeApply();
         }
-        if(MenuType == "Gameplay")
-        {
-            controllerSensitivityTextValue.text = defaultSensitivity.ToString("0");
-            controllerSensitivitySlider.value = defaultSensitivity;
-            mainControllerSensitivity = defaultSensitivity;
-            invertYToggle.isOn = false;
-            GameplayApply();
-
-        }
         if (MenuType == "Graphics")
         {
-            //reset brightness value
-            brightnessSlider.value = defaultBrightness;
-            brightnessTextValue.text = defaultBrightness.ToString("0.0");
-
             qualityDropdown.value = 1;
-            QualitySettings.SetQualityLevel(1);
+            QualitySettings.SetQualityLevel(2);
 
             fullScreenToggle.isOn = false;
             Screen.fullScreen = false;

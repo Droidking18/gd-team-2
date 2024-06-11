@@ -45,15 +45,15 @@ public class PlayerScript : MonoBehaviour
     }
 
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        var meshRenderer = hit.gameObject.GetComponent<MeshRenderer>();
-        Debug.Log("Building color hit registered");
-        if (hit.gameObject.CompareTag("Building"))
-        {
-            meshRenderer.material.color = Color.red; // Change the building's color
-        }
-    }
+    //private void OnControllerColliderHit(ControllerColliderHit hit)
+    //{
+    //    var meshRenderer = hit.gameObject.GetComponent<MeshRenderer>();
+    //    Debug.Log("Building color hit registered");
+    //    if (hit.gameObject.CompareTag("Building"))
+    //    {
+    //        meshRenderer.material.color = Color.red; // Change the building's color
+    //    }
+    //}
 
     private void Update()
     {

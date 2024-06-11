@@ -9,6 +9,10 @@ TagManager:
   - Road
   - Building
   - Obstacle
+  - Menu
+  - PersistentMainCamera
+  - PlayerPrefs
+  - Countdown
   layers:
   - Default
   - TransparentFX
