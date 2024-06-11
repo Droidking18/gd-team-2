@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
@@ -6,6 +8,13 @@ public class PauseMenu : MonoBehaviour
 {
     // Keeps track if game is paused
     public static bool gameIsPaused = false;
+
+    //Reference to player script for save game function
+    [Header("Player script")]
+    [SerializeField] private Player player;
+
+    [Header("Confirmation")]
+    [SerializeField] private GameObject confirmationPrompt = null;
 
     // PauseMenu Panel UI
     public GameObject pauseMenuUI;
@@ -42,25 +51,25 @@ public class PauseMenu : MonoBehaviour
         // Sets the bool gameIsPaused 
         gameIsPaused = true;
     }
-    //Saves current game and loads MainMenu scene
+
+    //Saves current player position and countdown timer
+    public void SaveGame()
+    {
+        if (player != null) 
+        {
+            player.SavePlayerData(); 
+            Debug.Log("Game Saved");
+            // Confirmation message to the player
+            StartCoroutine(ConfirmationBox());
+        }
+        else
+        {
+            Debug.LogError("Player not found. Could not save game.");
+        }
+    }
+    //Loads MainMenu scene
     public void loadMenu()
     {
-        // Saves current scene using PlayerPrefs (by name)
-        string currentSceneName = SceneManager.GetActiveScene().name;
-
-        //Get the player game object and its position 
-        GameObject player = GameObject.Find("Player");
-        Vector3 playerPosition = player.transform.position;
-
-        PlayerPrefs.SetString("SavedGame", currentSceneName);
-
-        //Save the player position
-        PlayerPrefs.SetFloat("PlayerX", playerPosition.x);
-        PlayerPrefs.SetFloat("PlayerY", playerPosition.y);
-        PlayerPrefs.SetFloat("PlayerZ", playerPosition.z);
-
-        Debug.Log("Scene saved: " + currentSceneName);
-
         // Loads MainMenu scene either way
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;    
@@ -68,7 +77,24 @@ public class PauseMenu : MonoBehaviour
 
     public void quitGame()
     {
+        try
+        {
+            SaveGame();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Not possible to save, error: " + e);
+        }
         Debug.Log("Quit Game has been pressed");
         Application.Quit();
+    }
+
+    // Confirmation that new volume settings have been applied 
+    public IEnumerator ConfirmationBox()
+    {
+        confirmationPrompt.SetActive(true);
+        yield return new WaitForSeconds(2);
+        confirmationPrompt.SetActive(false);
+
     }
 }

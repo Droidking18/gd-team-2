@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        // Find Countdown component (you could also reference it in the inspector)
+        // Find Countdown component 
         countdown = FindObjectOfType<Countdown>();
     }
 
