@@ -7,7 +7,8 @@ public class Countdown : MonoBehaviour
     // Starting time in seconds
     [SerializeField] private float startTime = 300f; 
     private float currentTime;
-
+    //Public Property for read-only access to the currentTime
+    public float CurrentTime => currentTime;
 
     public delegate void TimeExpiredHandler();
     // Creates an event
