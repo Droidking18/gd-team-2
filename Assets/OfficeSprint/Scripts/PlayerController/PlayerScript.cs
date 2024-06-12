@@ -60,11 +60,12 @@ public class PlayerScript : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         PlayerMovement();
+        Debug.Log("isGrounded" + isGrounded);
 
         // Apply gravity if not grounded
         if (!controller.isGrounded)
         {
-            ccStepOffset = 
+            ccStepOffset = 0;
             velocity.y += gravity * Time.deltaTime;
         }
         else

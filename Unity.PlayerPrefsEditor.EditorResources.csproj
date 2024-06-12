@@ -256,7 +256,7 @@
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/Office_Sprint/gd-team-2/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -613,16 +613,16 @@
  <HintPath>/Applications/Unity/Hub/Editor/2019.4.18f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/Office_Sprint/gd-team-2/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/Office_Sprint/gd-team-2/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/Office_Sprint/gd-team-2/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/gd-team-2/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>/Users/marieid/Documents/BSc_Computer_Science/2023-2024/CM3030 Games Development/Office_Sprint/gd-team-2/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
