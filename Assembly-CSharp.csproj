@@ -58,7 +58,6 @@
      <Compile Include="Assets\Barrier Pack\Scripts\ContrastStretch.cs" />
      <Compile Include="Assets\Barrier Pack\Scripts\GlobalFog.cs" />
      <Compile Include="Assets\Barrier Pack\Scripts\PostEffectsBase.cs" />
-     <Compile Include="Assets\OfficeSprint\Scripts\CameraController\CameraController.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\GameController\Countdown.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\GameController\GameController.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\GameController\ScenePersistent.cs" />

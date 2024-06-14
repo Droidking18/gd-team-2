@@ -1,14 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Unity.PlayerPrefsEditor.Editor PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OfficeSprint/Scripts/GameController/ScenePersistent.cs">
+    <Files>
+      <File FileName="Assets/OfficeSprint/Scripts/MenuController/MenuController.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/GameController/ScenePersistent.cs" Line="16" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Unity.PlayerPrefsEditor.Editor PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OfficeSprint/Scripts/SoundController.cs">
-    <Files>
-      <File FileName="Assets/OfficeSprint/Scripts/SoundController.cs" Line="7" Column="24" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
 </Properties>
