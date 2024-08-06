@@ -164,8 +164,12 @@ MonoBehaviour:
   movementSpeed: 5
   rotationSpeed: 100
   jumpHeight: 8
+  maxJumps: 2
+  coyoteTime: 0.2
   animator: {fileID: 5838175529488836818}
   walkAudioClip: {fileID: 8300000, guid: 3701a5fdf99882f40bc00eb9053eec92, type: 3}
+  runAudioClip: {fileID: 0}
+  fallAudioClip: {fileID: 0}
   controller: {fileID: 192585046}
   groundCheck: {fileID: 3332501326619192594}
   groundDistance: 0.4

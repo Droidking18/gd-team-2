@@ -12,12 +12,25 @@ public class Countdown : MonoBehaviour
 
     public delegate void TimeExpiredHandler();
     // Creates an event
-    public event TimeExpiredHandler OnTimeExpired; 
+    public event TimeExpiredHandler OnTimeExpired;
+
+
+
+    [Header("Audio Components")]
+    [SerializeField] private AudioSource backgroundMusic; // Reference to the AudioSource component for background music
+
 
     void Start()
     {
         // Initializes current time
-        currentTime = startTime; 
+        currentTime = startTime;
+
+        // Start playing background music if not already playing
+        if (backgroundMusic != null && !backgroundMusic.isPlaying)
+        {
+            backgroundMusic.loop = true; // Ensure the music loops
+            backgroundMusic.Play();
+        }
     }
 
     void Update()
@@ -37,6 +50,12 @@ public class Countdown : MonoBehaviour
             currentTime = 0;
             // Trigger the event when timer reaches 0
             OnTimeExpired?.Invoke();
+
+            // Stop the background music (optional)
+            if (backgroundMusic != null)
+            {
+                backgroundMusic.Stop();
+            }
         }
     }
 

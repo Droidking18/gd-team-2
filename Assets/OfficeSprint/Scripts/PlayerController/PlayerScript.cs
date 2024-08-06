@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     //Character rotation speed 
     public float rotationSpeed = 5.0f;
     // Character jump height
-    public float jumpHeight = 4f;
+    public float jumpHeight = 10f;
     // This sets a double jump max of 2 jumps
     public int maxJumps = 2; 
     private int jumpsRemaining;
@@ -53,11 +53,23 @@ public class PlayerScript : MonoBehaviour
     // Returns true if character is touching the ground
     private bool isGrounded;
     // Standard Earth gravity
-    private readonly float gravity = -9.81f;
+    private readonly float gravity = -19.81f;
+
+    // Added by Roshan
+    // Adjust the number of lives 
+    [Header("Lives Remaining")]
+    private int livesLeft;
+    private int totalLives = 30;
+
+    private bool playFallAudio;
+
+    // End of modification
 
 
     void Start()
     {
+        livesLeft = totalLives;
+
         // Gets component AudioSource
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -74,6 +86,14 @@ public class PlayerScript : MonoBehaviour
 
     private void Update()
     {
+        // Added by Roshan
+        // Calls the fall function when Gunther falls
+        if (transform.position.y < 10)
+        {
+            fall();
+        }
+        // End of modification
+
         // Update grounded status and track if it changed
         wasPreviouslyGrounded = isGrounded;
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -85,7 +105,7 @@ public class PlayerScript : MonoBehaviour
         if (!isGrounded)
         {
             ccStepOffset = 0;
-            velocity.y += gravity * Time.deltaTime;
+            velocity.y += (gravity * 2) * Time.deltaTime;
             coyoteTimeCounter -= Time.deltaTime;
         }
         else
@@ -95,6 +115,9 @@ public class PlayerScript : MonoBehaviour
             if (!wasPreviouslyGrounded)
             {
                 velocity.y = 0f;
+                // Unfavourable flag used to control jump audio
+                playFallAudio = false;
+
             }
             controller.stepOffset = ccStepOffset;
         }
@@ -109,17 +132,18 @@ public class PlayerScript : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
-                Debug.Log("Playing walk/run audio");
+                //Debug.Log("Playing walk/run audio");
                 audioSource.clip = isRunning ? runAudioClip : walkAudioClip;
                 audioSource.Play();
             }
         }
         else if (isFalling)
         {
-            if (!audioSource.isPlaying || audioSource.clip != fallAudioClip)
+            if (!playFallAudio)
             {
                 audioSource.clip = fallAudioClip;
                 audioSource.Play();
+                playFallAudio = true; // Reset the flag to allow sound
             }
         }
         else
@@ -133,10 +157,12 @@ public class PlayerScript : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        // Movement
-        Vector3 moveDirection = transform.forward * vertical + transform.right * horizontal;
-        moveDirection = Vector3.ClampMagnitude(moveDirection, 1f).normalized;
+        // Changes by Roshan
+        // Move forward or back
+        Vector3 forwardMovement = transform.forward * vertical;
 
+        // Movement
+        Vector3 moveDirection = Vector3.ClampMagnitude(forwardMovement, 1f);
         controller.Move(moveDirection * movementSpeed * Time.deltaTime);
 
         // Determine if the player is moving
@@ -161,4 +187,34 @@ public class PlayerScript : MonoBehaviour
 
         animator.SetFloat("MovementValue", movementAmount, 0.2f, Time.deltaTime);
     }
+
+    // Added by Roshan
+    // Function keeps track of the lives left and transforms Gunther to the starting pos when he falls
+    private void fall()
+    {
+        if (livesLeft > 0)
+        {
+            // Minus a live whenever Gunther falls
+            livesLeft--;
+            Debug.Log(livesLeft);
+
+            // Disable the controller for Gunther to put him back to the start pos
+            // https://discussions.unity.com/t/character-controller-disable/3444
+            controller.enabled = false;
+
+            // Transform Gunther's position to the starting position
+            transform.position = new Vector3(10, 37, -30);
+
+            // Enable controller once Gunther is repositioned
+            // https://discussions.unity.com/t/character-controller-disable/3444
+            // Re-enable the CharacterController after the position change
+            controller.enabled = true;
+        }
+        else
+        {
+            // To implement a function which deals with game over. 
+            Debug.Log("Better luck next time!");
+        }
+    }
+    // End of code added by Roshan
 }
