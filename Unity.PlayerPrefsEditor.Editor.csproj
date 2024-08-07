@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{905F0930-8930-7798-B61B-F840E1627297}</ProjectGuid>
+    <ProjectGuid>{3789C522-63CA-5FD7-9041-6903AB927A6C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.PlayerPrefsEditor.Editor</AssemblyName>
@@ -649,7 +649,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.PlayerPrefsEditor.EditorResources.csproj">
-      <Project>{152EBBFA-33AC-18A5-70DE-421ED9D4EE55}</Project>
+      <Project>{DE5D215C-AC1F-5577-A90F-01223BA71BDE}</Project>
       <Name>Unity.PlayerPrefsEditor.EditorResources</Name>
     </ProjectReference>
   </ItemGroup>
