@@ -24,8 +24,8 @@ public class PlayerData
         {
             // Default transform values
             position[0] = 10f;  
-            position[1] = -27.56f;  
-            position[2] = -29f;  
+            position[1] = 37f;  
+            position[2] = -29f;
         }
     }
 }
