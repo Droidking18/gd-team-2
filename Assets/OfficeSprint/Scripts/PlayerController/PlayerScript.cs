@@ -82,6 +82,14 @@ public class PlayerScript : MonoBehaviour
         controller = GetComponent<CharacterController>();
         // Gets character controller step offset
         ccStepOffset = controller.stepOffset;
+
+        // Added by Roshan
+        // Hide the mouse cursor
+        // https://docs.unity3d.com/ScriptReference/Cursor-visible.html
+        // https://discussions.unity.com/t/why-is-there-no-way-to-hide-the-mouse-cursor-when-entering-play-mode/918105
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        // End of code added by Roshan
     }
 
     private void Update()
@@ -169,10 +177,12 @@ public class PlayerScript : MonoBehaviour
         isMoving = horizontal != 0f || vertical != 0f;
 
         // Rotation
-        if (horizontal != 0f)
-        {
-            transform.Rotate(Vector3.up, horizontal * rotationSpeed * Time.deltaTime);
-        }
+        // Modified by Roshan
+        // https://docs.unity3d.com/ScriptReference/Input.GetAxis.html
+        float mouseHorizontal = (rotationSpeed / 30) * Input.GetAxis("Mouse X");
+        float keyboardRotation = horizontal * rotationSpeed * Time.deltaTime;
+        transform.Rotate(Vector3.up, mouseHorizontal + keyboardRotation);
+        // End of code modified by Roshan
 
         // Jumping logic
         if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTimeCounter > 0))
