@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -59,17 +60,18 @@ public class PlayerScript : MonoBehaviour
     // Adjust the number of lives 
     [Header("Lives Remaining")]
     private int livesLeft;
-    private int totalLives = 30;
+    private int totalLives = 30; // Change the setting prior to submission
+    [SerializeField] private TMP_Text livesRemainingText;
 
     private bool playFallAudio;
-
     // End of code added by Roshan
 
 
     void Start()
     {
         livesLeft = totalLives;
-
+        // Update the lives remaining from totalLives
+        UpdateLivesLeftDisplay();
         // Gets component AudioSource
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -207,6 +209,8 @@ public class PlayerScript : MonoBehaviour
             // Minus a live whenever Gunther falls
             livesLeft--;
             Debug.Log(livesLeft);
+            // Minus 1 from the livesLeft
+            UpdateLivesLeftDisplay();
 
             // Disable the controller for Gunther to put him back to the start pos
             // https://discussions.unity.com/t/character-controller-disable/3444
@@ -225,6 +229,12 @@ public class PlayerScript : MonoBehaviour
             // To implement a function which deals with game over. 
             Debug.Log("Better luck next time!");
         }
+    }
+
+    private void UpdateLivesLeftDisplay()
+    {
+       // Display the remaining lives using livesLeft
+       livesRemainingText.text = "Lives: " + livesLeft.ToString(); 
     }
     // End of code added by Roshan
 }
