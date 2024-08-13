@@ -26,5 +26,4 @@ public class BeaconLight : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
-
 }
