@@ -13,6 +13,6 @@ public class GameController : MonoBehaviour
     private void HandleTimeExpired()
     {
         Debug.Log("Time has expired!");
-        // Add your game over or life loss logic here
+        // Add game over logic here
     }
 }
