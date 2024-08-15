@@ -15,6 +15,7 @@ TagManager:
   - Countdown
   - Swing
   - TransportHelicopter
+  - GM
   layers:
   - Default
   - TransparentFX
