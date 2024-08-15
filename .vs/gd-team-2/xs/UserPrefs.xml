@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{2F9D63D4-F576-55A4-1463-C4DC0A611B06}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OfficeSprint/Scripts/MenuController/MenuController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OfficeSprint/Scripts/SwingRotation.cs">
     <Files>
-      <File FileName="Assets/OfficeSprint/Scripts/PlayerController/PlayerScript.cs" Line="23" Column="30" />
-      <File FileName="Assets/OfficeSprint/Scripts/MenuController/MenuController.cs" Line="31" Column="28" />
-      <File FileName="Assets/OfficeSprint/Scripts/GameController/ScenePersistent.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/SwingRotation.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/PlayerController/PlayerScriptCC.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/GameController/GameController.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/Player.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/PlayerData.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/MenuController/MenuController.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/GameController/ScenePersistent.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/SwingRotation.cs" Line="18" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerController/PlayerScript.cs" Line="16" Column="33" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerController/PlayerScriptCC.cs" Line="18" Column="34" />
+      <File FileName="Assets/OfficeSprint/Scripts/GameController/GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/PlayerData.cs" Line="1" Column="1" />
       <File FileName="Assets/OfficeSprint/Scripts/MagicCarpet.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/HelicopterTransport.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/BeaconLight.cs" />
@@ -16,13 +16,13 @@
       <File FileName="Assets/OfficeSprint/Scripts/HelicopterFlying.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/GameController/Countdown.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/MenuController/LoadPrefs.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/SaveSystem.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/SoundController/SoundController.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/SaveSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/SoundController/SoundController.cs" Line="1" Column="1" />
       <File FileName="Assets/OfficeSprint/Scripts/WorldController/BuildingColorChange.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/SwingSound.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/HelicopterSound.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/MenuController/MainMenuManager.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/MenuController/PauseMenu.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/HelicopterSound.cs" Line="30" Column="6" />
+      <File FileName="Assets/OfficeSprint/Scripts/MenuController/MainMenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/MenuController/PauseMenu.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -33,11 +33,10 @@
                 <Node name="Scripts" expanded="True">
                   <Node name="GameController" expanded="True" />
                   <Node name="MenuController" expanded="True" />
-                  <Node name="PlayerController" expanded="True">
-                    <Node name="PlayerScript.cs" selected="True" />
-                  </Node>
+                  <Node name="PlayerController" expanded="True" />
                   <Node name="PlayerDataSave" expanded="True" />
                   <Node name="SoundController" expanded="True" />
+                  <Node name="SwingRotation.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
@@ -49,7 +48,7 @@
   <MonoDevelop.Ide.ItemProperties.Unity.PlayerPrefsEditor.Editor PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1d9b4514-d044-454c-bb9f-25b9feebff67" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cd628504-61dd-47b0-83e8-0d3c49236ae3" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

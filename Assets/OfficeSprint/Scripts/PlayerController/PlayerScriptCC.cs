@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 
 public class PlayerScriptCC : MonoBehaviour
 {
@@ -51,7 +51,7 @@ public class PlayerScriptCC : MonoBehaviour
 
         characterController.SimpleMove(movementDirection * magnitude);
 
-        if(movementDirection != Vector3.zero)
+        if (movementDirection != Vector3.zero)
         {
             Quaternion forRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
 
@@ -64,4 +64,4 @@ public class PlayerScriptCC : MonoBehaviour
     }
 
 
-}
+}*/
