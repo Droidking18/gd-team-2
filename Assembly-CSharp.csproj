@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F900FC78-89BE-54AB-D4C1-131B1C540860}</ProjectGuid>
+    <ProjectGuid>{2F9D63D4-F576-55A4-1463-C4DC0A611B06}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -720,15 +720,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.PlayerPrefsEditor.Editor.csproj">
-      <Project>{905F0930-8930-7798-B61B-F840E1627297}</Project>
+      <Project>{3789C522-63CA-5FD7-9041-6903AB927A6C}</Project>
       <Name>Unity.PlayerPrefsEditor.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.PlayerPrefsEditor.EditorResources.csproj">
-      <Project>{152EBBFA-33AC-18A5-70DE-421ED9D4EE55}</Project>
+      <Project>{DE5D215C-AC1F-5577-A90F-01223BA71BDE}</Project>
       <Name>Unity.PlayerPrefsEditor.EditorResources</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.PlayerPrefsEditor.Samples.SampleScene.csproj">
-      <Project>{D1164EB8-A265-70B3-588F-E9659D112353}</Project>
+      <Project>{ABE27D70-8D6B-F929-5894-E56D3377D794}</Project>
       <Name>Unity.PlayerPrefsEditor.Samples.SampleScene</Name>
     </ProjectReference>
   </ItemGroup>

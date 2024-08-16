@@ -64,10 +64,16 @@ public class PlayerScript : MonoBehaviour
     private bool playFallAudio;
 
     // End of code added by Roshan
-
+    [Header("Checkpoints")]
+    private GameMaster gm;
 
     void Start()
     {
+
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        controller = GetComponent<CharacterController>();
+        transform.position = gm.lastCheckPointPos;
+
         livesLeft = totalLives;
 
         // Gets component AudioSource
@@ -212,8 +218,9 @@ public class PlayerScript : MonoBehaviour
             // https://discussions.unity.com/t/character-controller-disable/3444
             controller.enabled = false;
 
-            // Transform Gunther's position to the starting position
-            transform.position = new Vector3(10, 37, -30);
+            // Set position to the last checkpoint position
+            transform.position = gm.lastCheckPointPos;
+            
 
             // Enable controller once Gunther is repositioned
             // https://discussions.unity.com/t/character-controller-disable/3444

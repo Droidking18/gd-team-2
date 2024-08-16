@@ -13,7 +13,7 @@ public class Checkpoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //here im checking if the entity colliding with the checkpoint markre has tag "Player"
+        //here im checking if the entity colliding with the checkpoint marker has tag "Player"
         if (other.CompareTag("Player")){
             gm.lastCheckPointPos = transform.position;
         }

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{152EBBFA-33AC-18A5-70DE-421ED9D4EE55}</ProjectGuid>
+    <ProjectGuid>{DE5D215C-AC1F-5577-A90F-01223BA71BDE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.PlayerPrefsEditor.EditorResources</AssemblyName>
