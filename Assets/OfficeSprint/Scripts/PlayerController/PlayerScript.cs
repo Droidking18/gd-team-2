@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     // Character jump height
     public float jumpHeight = 10f;
     // This sets a double jump max of 2 jumps
-    public int maxJumps = 2; 
+    public int maxJumps = 2;
     private int jumpsRemaining;
     // Time where player has left the ground and can still perform another jump
     public float coyoteTime = 0.2f;
@@ -227,4 +227,10 @@ public class PlayerScript : MonoBehaviour
         }
     }
     // End of code added by Roshan
+
+
+public void SetMoveSpeed(float newSpeedAdjustment)
+    {
+        movementSpeed += newSpeedAdjustment;
+    }
 }
