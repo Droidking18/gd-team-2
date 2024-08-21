@@ -62,6 +62,7 @@
     <Compile Include="Assets\OfficeSprint\Scripts\GameController\Countdown.cs" />
     <Compile Include="Assets\OfficeSprint\Scripts\GameController\GameController.cs" />
     <Compile Include="Assets\OfficeSprint\Scripts\GameController\GameMaster.cs" />
+    <Compile Include="Assets\OfficeSprint\Scripts\GameController\GunthersOfficeWinState.cs" />
     <Compile Include="Assets\OfficeSprint\Scripts\GameController\ScenePersistent.cs" />
     <Compile Include="Assets\OfficeSprint\Scripts\HelicopterFast.cs" />
     <Compile Include="Assets\OfficeSprint\Scripts\HelicopterFlying.cs" />
