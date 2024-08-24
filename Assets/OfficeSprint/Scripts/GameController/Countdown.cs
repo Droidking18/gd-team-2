@@ -3,11 +3,10 @@ using TMPro;
 
 public class Countdown : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI countdownText;
-    [SerializeField] private TextMeshProUGUI scoreboardText; // Reference to the Scoreboard Text
+    [SerializeField] private TextMeshProUGUI countdownText;    
     // Starting time in seconds
-    [SerializeField] private float startTime = 300f; 
-    private float currentTime;
+    [SerializeField] public float startTime = 300f; 
+    public float currentTime;
     //Public Property for read-only access to the currentTime
     public float CurrentTime => currentTime;
 
@@ -15,10 +14,16 @@ public class Countdown : MonoBehaviour
     // Creates an event
     public event TimeExpiredHandler OnTimeExpired;
 
-    private float shortestTimeToWin;
+    [SerializeField] private AudioSource backgroundMusic;  
 
-    [Header("Audio Components")]
-    [SerializeField] private AudioSource backgroundMusic; // Reference to the AudioSource component for background music
+    // The following code was written by Roshan
+    [SerializeField] private GameObject instructionPanel;
+    [SerializeField] private GameObject checkpointPanel;
+    [SerializeField] private TextMeshProUGUI checkpointText;
+
+    private bool timerRunning = false;
+    public bool gamePaused = true;
+    // End of code written by Roshan
 
 
     void Start()
@@ -26,20 +31,25 @@ public class Countdown : MonoBehaviour
         // Initializes current time
         currentTime = startTime;
 
+        instructionPanel.SetActive(true); // Written by Roshan
+
         // Start playing background music if not already playing
         if (backgroundMusic != null && !backgroundMusic.isPlaying)
         {
-            backgroundMusic.loop = true; // Ensure the music loops
-            backgroundMusic.Play();
+            backgroundMusic.Pause();
         }
-        // Load the shortest time from PlayerPrefs
-        shortestTimeToWin = PlayerPrefs.GetFloat("ShortestTimeToWin", float.MaxValue);
-        UpdateScoreboardText();
     }
 
     void Update()
     {
-        if (currentTime > 0)
+        // The following code was written by Roshan
+        // Start countdown when enter is pressed
+        if (!timerRunning && Input.GetKeyDown(KeyCode.Return))
+        {
+            StartCountdown();
+        }
+        // End of code written by Roshan
+        if (timerRunning && currentTime > 0)
         {
             currentTime -= Time.deltaTime;
             UpdateCountdownText();
@@ -48,6 +58,12 @@ public class Countdown : MonoBehaviour
             {
                 countdownText.color = Color.red;
             }
+        }
+        // Stop timer value from reducing 
+        else if (!timerRunning) // Added by Roshan
+        {
+            currentTime += 0;
+            UpdateCountdownText();
         }
         else
         {
@@ -70,30 +86,68 @@ public class Countdown : MonoBehaviour
         countdownText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    private void UpdateScoreboardText()
+    // The following code was written by Roshan
+    // Update the flags and stop the music
+    public void StopCountdown()
     {
-        if (shortestTimeToWin != float.MaxValue)
+        timerRunning = false;
+        gamePaused = true;
+        // Stop music
+        if (backgroundMusic != null)
         {
-            int minutes = Mathf.FloorToInt(shortestTimeToWin / 60);
-            int seconds = Mathf.FloorToInt(shortestTimeToWin % 60);
-            scoreboardText.text = $"Best Time: {minutes:00}:{seconds:00}";
-        }
-        else
-        {
-            scoreboardText.text = "Best Time: --:--";
+            backgroundMusic.Stop();
         }
     }
 
-    // Public method to update the scoreboard when called by the win state script
-    public void UpdateScoreboard(float finalTime)
+    // Game Start - Remove the instruction panel, start the timer and music
+    public void StartCountdown()
     {
-        if (finalTime < shortestTimeToWin)
+        // Remove starting instruction panel
+        instructionPanel.SetActive(false);
+        timerRunning = true;
+        gamePaused = false;
+        // Play music
+        if (backgroundMusic != null)
         {
-            shortestTimeToWin = finalTime;
-            PlayerPrefs.SetFloat("ShortestTimeToWin", shortestTimeToWin);
-            PlayerPrefs.Save();
-            UpdateScoreboardText();
+            backgroundMusic.Play();  
         }
     }
 
+    // Show message at the checkpoint, pause the music and countdown
+    public void PauseAtCheckpoint(string checkpointText1)
+    {
+        //  Update the flags
+        timerRunning = false;
+        gamePaused = true;
+        // Show checkpoint panel and text
+        checkpointPanel.SetActive(true);
+        checkpointText.text = checkpointText1;
+        // Pause music
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.Pause();
+        }
+    }
+
+    // Mid Game - Remove message at the checkpoint, resume music and countdown
+    public void ResumeFromCheckpoint()
+    {
+        // Remove the checkpoint panel
+        checkpointPanel.SetActive(false);
+        timerRunning = true;
+        gamePaused = false;
+        // Play music
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.Play();
+        }
+    }
+
+    // Mid Game - Stop countdown and show checkpoint panel
+    public void MidGamePause(GameObject checkpointPanel)
+    {
+        StopCountdown(); // Currently does not seem to work. To debug
+        checkpointPanel.SetActive(true);
+    }
+    // End of code written by Roshan
 }

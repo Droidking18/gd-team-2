@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] private Countdown countdown;
+    [SerializeField] public Countdown countdown;
 
     void Start()
     {

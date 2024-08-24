@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using TMPro;
+using System.Collections;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -10,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     // Character jump height
     public float jumpHeight = 10f;
     // This sets a double jump max of 2 jumps
-    public int maxJumps = 2;
+    public int maxJumps = 2; 
     private int jumpsRemaining;
     // Time where player has left the ground and can still perform another jump
     public float coyoteTime = 0.2f;
@@ -23,7 +25,13 @@ public class PlayerScript : MonoBehaviour
     [Header("Player sounds")]
     [SerializeField] private AudioClip walkAudioClip;
     [SerializeField] private AudioClip runAudioClip;
+
+    // The following code was written by Roshan
     [SerializeField] private AudioClip fallAudioClip;
+    [SerializeField] private AudioClip landAudioClip;
+    [SerializeField] private AudioClip loseLiveAudioClip;
+    // End of code written by Roshan
+
     private AudioSource audioSource;
 
     // Gravity and ground check for jump
@@ -55,21 +63,33 @@ public class PlayerScript : MonoBehaviour
     // Standard Earth gravity
     private readonly float gravity = -19.81f;
 
-    // Added by Roshan
-    // Adjust the number of lives 
-    [Header("Lives Remaining")]
+    // The following code was written by Roshan
+    // Remaining lives
     private int livesLeft;
+    // Total lives in game
     private int totalLives = 30;
+    // Lives counter on canvas
+    [SerializeField] private TMP_Text livesRemainingText;
 
+    // Falling audio played when Gunther starts to fall
     private bool playFallAudio;
-
-    // End of code added by Roshan
-
+    // Landing audio played when Gunther reaches the ground layer
+    private bool playLandAudio;
+    // Obtain last checkpoint position for the checkpoint logic
+    private Vector3 currentCheckpointPos;
+    // Get the countdown
+    private Countdown countdown;
+    // Game state when paused
+    private bool pause;
+    // End of code written by Roshan
 
     void Start()
     {
+        // Start at the last stored checkpoint position
+        currentCheckpointPos = transform.position; // Added by Roshan
         livesLeft = totalLives;
-
+        // Update the lives remaining from totalLives
+        UpdateLivesLeftDisplay(); // Added by Roshan
         // Gets component AudioSource
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -83,24 +103,33 @@ public class PlayerScript : MonoBehaviour
         // Gets character controller step offset
         ccStepOffset = controller.stepOffset;
 
-        // Added by Roshan
-        // Hide the mouse cursor
+        // The following code was written by Roshan
+        // Hide the mouse cursor during the game
         // https://docs.unity3d.com/ScriptReference/Cursor-visible.html
         // https://discussions.unity.com/t/why-is-there-no-way-to-hide-the-mouse-cursor-when-entering-play-mode/918105
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        // Get the countdown
+        countdown = FindObjectOfType<Countdown>();
         // End of code added by Roshan
     }
 
     private void Update()
     {
-        // Added by Roshan
+        // The following code was written by Roshan
+        // Pause the game on load
+        if (countdown != null)
+        {
+            // Set pause based on the state on countdown.gamePaused flag
+            pause = countdown.gamePaused;
+        }
+
         // Calls the fall function when Gunther falls
         if (transform.position.y < 10)
         {
             fall();
         }
-        // End of code added by Roshan
+        // End of code written by Roshan
 
         // Update grounded status and track if it changed
         wasPreviouslyGrounded = isGrounded;
@@ -114,7 +143,7 @@ public class PlayerScript : MonoBehaviour
         {
             ccStepOffset = 0;
             velocity.y += (gravity * 2) * Time.deltaTime;
-            coyoteTimeCounter -= Time.deltaTime;
+            coyoteTimeCounter -= Time.deltaTime;     
         }
         else
         {
@@ -123,9 +152,7 @@ public class PlayerScript : MonoBehaviour
             if (!wasPreviouslyGrounded)
             {
                 velocity.y = 0f;
-                // Unfavourable flag used to control jump audio
                 playFallAudio = false;
-
             }
             controller.stepOffset = ccStepOffset;
         }
@@ -140,7 +167,6 @@ public class PlayerScript : MonoBehaviour
         {
             if (!audioSource.isPlaying)
             {
-                //Debug.Log("Playing walk/run audio");
                 audioSource.clip = isRunning ? runAudioClip : walkAudioClip;
                 audioSource.Play();
             }
@@ -149,9 +175,10 @@ public class PlayerScript : MonoBehaviour
         {
             if (!playFallAudio)
             {
+                // Play the falling sound
                 audioSource.clip = fallAudioClip;
                 audioSource.Play();
-                playFallAudio = true; // Reset the flag to allow sound
+                playFallAudio = true; 
             }
         }
         else
@@ -165,19 +192,26 @@ public class PlayerScript : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        // Changes by Roshan
+        // Modified by Roshan
         // Move forward or back
         Vector3 forwardMovement = transform.forward * vertical;
 
-        // Movement
-        Vector3 moveDirection = Vector3.ClampMagnitude(forwardMovement, 1f);
-        controller.Move(moveDirection * movementSpeed * Time.deltaTime);
+        if (pause)
+        {
+            Vector3 moveDirection = Vector3.ClampMagnitude(forwardMovement, 1f);
+            controller.Move(moveDirection * 0 * Time.deltaTime);
+        } else
+        {
+            Vector3 moveDirection = Vector3.ClampMagnitude(forwardMovement, 1f);
+            controller.Move(moveDirection * movementSpeed * Time.deltaTime);
+        }
+     
 
         // Determine if the player is moving
         isMoving = horizontal != 0f || vertical != 0f;
 
-        // Rotation
         // Modified by Roshan
+        // Rotation
         // https://docs.unity3d.com/ScriptReference/Input.GetAxis.html
         float mouseHorizontal = (rotationSpeed / 30) * Input.GetAxis("Mouse X");
         float keyboardRotation = horizontal * rotationSpeed * Time.deltaTime;
@@ -198,22 +232,27 @@ public class PlayerScript : MonoBehaviour
         animator.SetFloat("MovementValue", movementAmount, 0.2f, Time.deltaTime);
     }
 
-    // Added by Roshan
-    // Function keeps track of the lives left and transforms Gunther to the starting pos when he falls
+    // The following code was written/modifief by Roshan
+    // Function keeps track of the lives left and transform Gunther to the starting pos when he falls
     private void fall()
     {
         if (livesLeft > 0)
         {
+            // Lose a live sound   
+            audioSource.clip = loseLiveAudioClip;
+            audioSource.Play();
+
             // Minus a live whenever Gunther falls
             livesLeft--;
-            Debug.Log(livesLeft);
+            // Update the lives left
+            UpdateLivesLeftDisplay();
 
             // Disable the controller for Gunther to put him back to the start pos
             // https://discussions.unity.com/t/character-controller-disable/3444
             controller.enabled = false;
 
-            // Transform Gunther's position to the starting position
-            transform.position = new Vector3(10, 37, -30);
+            // Transform Gunther's position to the latest checkpoint position
+            transform.position = currentCheckpointPos;
 
             // Enable controller once Gunther is repositioned
             // https://discussions.unity.com/t/character-controller-disable/3444
@@ -223,14 +262,48 @@ public class PlayerScript : MonoBehaviour
         else
         {
             // To implement a function which deals with game over. 
-            Debug.Log("Better luck next time!");
+            Debug.Log("Better luck next time!"); // To debug
         }
+    }
+
+    private void UpdateLivesLeftDisplay()
+    {
+       // Display the remaining lives using livesLeft
+       livesRemainingText.text = "Lives: " + livesLeft; 
     }
     // End of code added by Roshan
 
-
-public void SetMoveSpeed(float newSpeedAdjustment)
+    // Increased movement speed when Gunther collides with the heart
+    public void SetMoveSpeed(float newSpeedAdjustment)
     {
         movementSpeed += newSpeedAdjustment;
+        StartCoroutine(ResumeNormalSpeed(newSpeedAdjustment)); // Added by Roshan
     }
+
+    // The following code was written by Roshan
+    // Resume normal speed after a time delay of 5 seconds
+    private IEnumerator ResumeNormalSpeed( float speedAdjustment)
+    {
+        yield return new WaitForSeconds(5);
+        movementSpeed -= speedAdjustment;
+    }
+
+    public void AddLive(int addOneLive)
+    {
+        // Add a live
+        livesLeft += addOneLive; 
+        if (livesLeft >= totalLives) 
+        {
+            // Limit the lives left to total lives
+            livesLeft = totalLives;
+        }
+        UpdateLivesLeftDisplay();
+    }
+
+    public void UpdateLatestCheckpoint(Vector3 latestCheckpointPos)
+    {
+        // Set the latest vector 3 checkpoint as current
+        currentCheckpointPos = latestCheckpointPos;
+    }
+    // End of code added by Roshan
 }

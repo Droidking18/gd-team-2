@@ -1,4 +1,4 @@
-﻿// Added by Roshan
+﻿// This script was added by Roshan
 // Turns the beacon light off and on
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ public class BeaconLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // https://docs.unity3d.com/ScriptReference/MonoBehaviour.StartCoroutine.html
         StartCoroutine(Beacon());
     }
 
@@ -26,5 +27,4 @@ public class BeaconLight : MonoBehaviour
             yield return new WaitForSeconds(2);
         }
     }
-
 }
