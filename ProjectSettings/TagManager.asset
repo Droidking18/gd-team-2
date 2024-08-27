@@ -15,7 +15,8 @@ TagManager:
   - Countdown
   - Swing
   - TransportHelicopter
-  - GM
+  - casual_Male_K
+  - GroundSound
   layers:
   - Default
   - TransparentFX

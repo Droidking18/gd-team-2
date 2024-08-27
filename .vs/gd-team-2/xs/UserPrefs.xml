@@ -1,16 +1,57 @@
-﻿<Properties>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+﻿<Properties StartupConfiguration="{2F9D63D4-F576-55A4-1463-C4DC0A611B06}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OfficeSprint/Scripts/PlayerController/PlayerScript.cs">
+    <Files>
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerController/PlayerScript.cs" Line="220" Column="59" />
+      <File FileName="Assets/OfficeSprint/Scripts/MenuController/MenuController.cs" Line="20" Column="67" />
+      <File FileName="Assets/OfficeSprint/Scripts/GameController/ScenePersistent.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/SwingRotation.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerController/PlayerScriptCC.cs" Line="18" Column="34" />
+      <File FileName="Assets/OfficeSprint/Scripts/GameController/GameController.cs" Line="19" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/PlayerData.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/MagicCarpet.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/HelicopterTransport.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/BeaconLight.cs" Line="28" Column="6" />
+      <File FileName="Assets/OfficeSprint/Scripts/HelicopterFast.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/HelicopterFlying.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/GameController/Countdown.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/MenuController/LoadPrefs.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/SaveSystem.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/SoundController/SoundController.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/WorldController/BuildingColorChange.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/SwingSound.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/HelicopterSound.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/MenuController/MainMenuManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/OfficeSprint/Scripts/MenuController/PauseMenu.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="gd-team-2" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="OfficeSprint" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="GameController" expanded="True" />
+                  <Node name="MenuController" expanded="True" />
+                  <Node name="PlayerController" expanded="True">
+                    <Node name="PlayerScript.cs" selected="True" />
+                  </Node>
+                  <Node name="PlayerDataSave" expanded="True" />
+                  <Node name="SoundController" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.Unity.PlayerPrefsEditor.Editor PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1d9b4514-d044-454c-bb9f-25b9feebff67" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cd628504-61dd-47b0-83e8-0d3c49236ae3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/OfficeSprint/Scripts/MenuController/PauseMenu.cs">
-    <Files>
-      <File FileName="Assets/OfficeSprint/Scripts/PlayerDataSave/SaveSystem.cs" Line="18" Column="6" IsPinned="True" />
-      <File FileName="Assets/OfficeSprint/Scripts/MenuController/PauseMenu.cs" Line="1" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
 </Properties>
