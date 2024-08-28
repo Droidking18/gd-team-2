@@ -40,6 +40,17 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("MenuController Start() called");
+        if (menuMusic != null)
+        {
+            Debug.Log("AudioSource is assigned");
+            menuMusic.Play();
+            Debug.Log("AudioSource is playing: " + menuMusic.isPlaying);
+        }
+        else
+        {
+            Debug.LogError("AudioSource not assigned in MenuController!");
+        }
         if (menuMusic != null)
         {
             // Start playing the music
@@ -78,6 +89,8 @@ public class MenuController : MonoBehaviour
     public void ContinueDialogYes()
     {
 
+        Debug.Log("Continue button pressed");
+
         sceneToContinue = PlayerPrefs.GetInt("SavedGame");
 
         if(sceneToContinue >= 0)
@@ -94,6 +107,7 @@ public class MenuController : MonoBehaviour
 
     public void NewGameDialogYes()
     {
+        Debug.Log("New game button pressed");
         // Loads the game scene (OfficeSprint)
         SceneManager.LoadScene(newGameLevel);
     }
