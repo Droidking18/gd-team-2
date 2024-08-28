@@ -42,7 +42,7 @@ public class SoundController : MonoBehaviour
     void OnGUI()
     {
         //Switch this toggle to activate and deactivate the parent GameObject
-        m_Play = GUI.Toggle(new Rect(10, 10, 100, 30), m_Play, "Play Music");
+        m_Play = GUI.Toggle(new Rect(10, 10, 100, 30), m_Play, "Stop Music");
 
         //Detect if there is a change with the toggle
         if (GUI.changed)

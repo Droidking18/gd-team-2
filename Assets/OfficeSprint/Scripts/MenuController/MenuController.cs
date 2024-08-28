@@ -14,6 +14,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
     [SerializeField] private float defaultVolume = 1.0f;
+    [Header("Music")] public AudioSource menuMusic;
     [SerializeField] private AudioListener audioListener;
 
     [Header("Confirmation")]
@@ -39,14 +40,11 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        //Find the persistent AudioListener from OfficeSprint MainCamera
-        audioListener = FindObjectOfType<AudioListener>(); 
-
-        if (audioListener == null)
+        if (menuMusic != null)
         {
-            Debug.LogWarning("AudioListener not found!");
+            // Start playing the music
+            menuMusic.Play(); 
         }
-
         resolutions = Screen.resolutions;
         resolutionDropdow.ClearOptions();
 
