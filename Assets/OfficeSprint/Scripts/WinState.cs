@@ -10,12 +10,15 @@ public class WinState : MonoBehaviour
     // Get the countdown
     public Countdown countdown;
     // Total game time
-    private float totalTime = 300f; 
+    private float totalTime = 300f;
+    // Background music when Gunther reaches office!
+    public AudioSource audioSource;
 
     void Start()
     {
         // Clear the win text
         winText.text = "";
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +30,8 @@ public class WinState : MonoBehaviour
             countdown.StopCountdown();
             // Show the congratulations text
             DisplayWinText();
+            audioSource.Play();
+            countdown.StopCountdown();
         }
     }
 
@@ -39,6 +44,6 @@ public class WinState : MonoBehaviour
         // Get the seconds from remainder
         int sec = Mathf.FloorToInt(timeTaken % 60);
         // Display the text and time taken
-        winText.text = "Congrats! You reached Office in " + min + "minutes & " + sec + "seconds";
+        winText.text = "Congrats! You reached Office in " + min + "minutes & " + sec + "seconds! Press Excape to view the Menu.";
     }
 }
