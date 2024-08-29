@@ -67,6 +67,7 @@
      <Compile Include="Assets\OfficeSprint\Scripts\FloatingBridge.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\GameController\Countdown.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\GameController\GameController.cs" />
+     <Compile Include="Assets\OfficeSprint\Scripts\GameController\GameOverController.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\HelicopterFast.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\HelicopterFlying.cs" />
      <Compile Include="Assets\OfficeSprint\Scripts\HelicopterSlow.cs" />
