@@ -14,7 +14,8 @@ public class Countdown : MonoBehaviour
     // Creates an event
     public event TimeExpiredHandler OnTimeExpired;
 
-    [SerializeField] private AudioSource backgroundMusic;  
+    [SerializeField] private AudioSource backgroundMusic;
+    [SerializeField] private AudioSource winBackgroundMusic;
 
     // The following code was written by Roshan
     [SerializeField] private GameObject instructionPanel;
@@ -96,6 +97,7 @@ public class Countdown : MonoBehaviour
         if (backgroundMusic != null)
         {
             backgroundMusic.Stop();
+            winBackgroundMusic.Play();
         }
     }
 
