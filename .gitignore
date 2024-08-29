@@ -1,1 +1,7 @@
 /Temp/**/*
+/Library
+Assembly-CSharp.csproj
+gd-team-2.sln
+Unity.PlayerPrefsEditor.Samples.SampleScene.csproj
+Unity.PlayerPrefsEditor.EditorResources.csproj
+Unity.PlayerPrefsEditor.Editor.csproj
