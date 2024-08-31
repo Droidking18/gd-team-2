@@ -1,12 +1,11 @@
-﻿// This script was added by Roshan
-// Handle the audio when Gunther jumps on a swing
+﻿// Handle the audio when Gunther jumps on a swing
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SwingSound : MonoBehaviour
 {
-    // Audio renamed to swingSound to avoid confusion with audioSource in Player object
+    // Audio renamed to swingSound to avoid confusion with multiple audioSource in Player object
     public AudioSource swingSound;
 
     // https://discussions.unity.com/t/problems-with-private-void-oncollisionenter-collision-collision/882528
@@ -15,7 +14,7 @@ public class SwingSound : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         // Play the swing sound when Gunther collides with Swing
-        if (other.gameObject.CompareTag("Swing") && swingSound != null)
+        if (other.gameObject.CompareTag("Swing"))
         {
            swingSound.Play();
         }
@@ -23,8 +22,8 @@ public class SwingSound : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        // Stop the swing sound when Gunther does not collides with Swing
-        if (other.gameObject.CompareTag("Swing") && swingSound != null)
+        // Stop the swing sound when Gunther does not collide with Swing
+        if (other.gameObject.CompareTag("Swing"))
         {
             swingSound.Stop();
         }

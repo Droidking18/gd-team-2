@@ -17,7 +17,6 @@ public class CoffeePickup : MonoBehaviour
 
     private Collider _collider;
 
-    // The following code was added by Roshan
     [SerializeField]
     private TextMeshProUGUI powerUpText;
 
@@ -39,14 +38,10 @@ public class CoffeePickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // The following code was learnt from these sources:
-        // https://stackoverflow.com/questions/62472719/how-can-i-pingpong-between-two-values-3-and-3-slowly
-        // https://stackoverflow.com/questions/61603070/mathf-pingpong-from-1-to-0
-        // Make the coffee can float
+        // Make the coffee can float and move slightly
         float coffeeMovement = Mathf.PingPong(Time.time * 3.0f, 5.0f) - 1;
         transform.position = coffeeStartPosition + new Vector3(coffeeMovement, 0, 0);
     }
-    // End of code written by Roshan
 
 
     private void Awake()
@@ -57,19 +52,17 @@ public class CoffeePickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // The following code was added by Roshan
         if (other.CompareTag("casual_Male_K"))
         {
             // Play the audio
             audioSource.Play();
-            // Display the speed boost text for 2 seconds. Power up is changed to Speed Boost!
+            // Display the speed boost text for 4 second
             powerUpText.text = "Speed Boost!";
             powerUpText.gameObject.SetActive(true);
             // https://learn.unity.com/tutorial/invoke-2d#5c8a6da9edbc2a067d4752d0
             // https://stackoverflow.com/questions/74870167/the-name-nameof-does-not-exist-in-the-current-context-assembly-csharp
             Invoke(nameof(HideSpeedBoostText), 4f);
         }
-        // End of code added by Roshan
 
         PlayerScript playerscript = other.gameObject.GetComponent<PlayerScript>();
         if (playerscript != null)
@@ -79,15 +72,12 @@ public class CoffeePickup : MonoBehaviour
         }         
     }
 
-    // The following code was added by Roshan
     private void HideSpeedBoostText()
     {
         // Hide the speed boost text
         powerUpText.text = "";
         powerUpText.gameObject.SetActive(false);
     }
-    // End of code added by Roshan
-
 
     public IEnumerator PowerupSequence(PlayerScript playerscript)
     {
@@ -105,7 +95,6 @@ public class CoffeePickup : MonoBehaviour
 
         Destroy(gameObject);
     }
-
 
     private void ActivatePowerup(PlayerScript playerscript)
     {

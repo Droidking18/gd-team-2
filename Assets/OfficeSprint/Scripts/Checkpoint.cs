@@ -1,15 +1,13 @@
-﻿// This script was added by Roshan
-// Get Gunther's position for UpdateLatestCheckpoint on PlayerScript.cs
+﻿// Get Gunther's position for UpdateLatestCheckpoint on PlayerScript.cs
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    // Create a vector3 to store the position of Gunther
     private Vector3 latestCheckpoint;
 
     private void Start()
     {
-        // Store Gunther's position
+        // Store Gunther's position when he collides with the most recent checkpoint
         latestCheckpoint = transform.position;
     }
 
@@ -22,7 +20,7 @@ public class Checkpoint : MonoBehaviour
             PlayerScript playerScript = other.GetComponent<PlayerScript>();
             if (playerScript != null)
             {
-                // Updates the checkpoint on PlayerScript.cs
+                // Update the checkpoint on PlayerScript.cs
                 playerScript.UpdateLatestCheckpoint(latestCheckpoint);
             }
         }

@@ -1,16 +1,14 @@
-﻿// This script was added by Roshan
-// Plays sound, display the mid game story panel and resumes game when enter is pressed
+﻿// Plays sound, display the mid game story panel when Gunther reaches the mid checkpoint
+// and resumes game when enter is pressed
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MidGameCheckpoint : MonoBehaviour
 {
-    // Get the countdown 
     [SerializeField] public Countdown countdown;
     [SerializeField] private GameObject midGamePanel; 
     private AudioSource audioSource;
-    // Default game state is not paused
     private bool gamePaused = false;
 
     // Start is called before the first frame update
