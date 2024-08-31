@@ -26,11 +26,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private AudioClip walkAudioClip;
     [SerializeField] private AudioClip runAudioClip;
 
-    // The following code was written by Roshan
     [SerializeField] private AudioClip fallAudioClip;
     [SerializeField] private AudioClip landAudioClip;
     [SerializeField] private AudioClip loseLiveAudioClip;
-    // End of code written by Roshan
 
     private AudioSource audioSource;
 
@@ -63,10 +61,9 @@ public class PlayerScript : MonoBehaviour
     // Standard Earth gravity
     private readonly float gravity = -19.81f;
 
-    // The following code was written by Roshan
     // Remaining lives
     private int livesLeft;
-    // Total lives in game
+    // Total lives in game set to 30. Change before project submission
     private int totalLives = 30;
     // Lives counter on canvas
     [SerializeField] private TMP_Text livesRemainingText;
@@ -83,15 +80,14 @@ public class PlayerScript : MonoBehaviour
     private WinState winstate;
     // Game state when paused
     private bool pause;
-    // End of code written by Roshan
 
     void Start()
     {
         // Start at the last stored checkpoint position
-        currentCheckpointPos = transform.position; // Added by Roshan
+        currentCheckpointPos = transform.position; 
         livesLeft = totalLives;
         // Update the lives remaining from totalLives
-        UpdateLivesLeftDisplay(); // Added by Roshan
+        UpdateLivesLeftDisplay();
         // Gets component AudioSource
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -105,20 +101,16 @@ public class PlayerScript : MonoBehaviour
         // Gets character controller step offset
         ccStepOffset = controller.stepOffset;
 
-        // The following code was written by Roshan
         // Hide the mouse cursor during the game
-        // https://docs.unity3d.com/ScriptReference/Cursor-visible.html
         // https://discussions.unity.com/t/why-is-there-no-way-to-hide-the-mouse-cursor-when-entering-play-mode/918105
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         // Get the countdown
         countdown = FindObjectOfType<Countdown>();
-        // End of code added by Roshan
     }
 
     private void Update()
     {
-        // The following code was written by Roshan
         // Pause the game on load
         if (countdown != null)
         {
@@ -131,7 +123,6 @@ public class PlayerScript : MonoBehaviour
         {
             fall();
         }
-        // End of code written by Roshan
 
         // Update grounded status and track if it changed
         wasPreviouslyGrounded = isGrounded;
@@ -194,7 +185,6 @@ public class PlayerScript : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
-        // Modified by Roshan
         // Move forward or back
         Vector3 forwardMovement = transform.forward * vertical;
 
@@ -211,13 +201,11 @@ public class PlayerScript : MonoBehaviour
         // Determine if the player is moving
         isMoving = horizontal != 0f || vertical != 0f;
 
-        // Modified by Roshan
         // Rotation
         // https://docs.unity3d.com/ScriptReference/Input.GetAxis.html
         float mouseHorizontal = (rotationSpeed / 50) * Input.GetAxis("Mouse X");
         float keyboardRotation = horizontal * rotationSpeed * Time.deltaTime;
         transform.Rotate(Vector3.up, mouseHorizontal + keyboardRotation);
-        // End of code modified by Roshan
 
         // Jumping logic
         if (Input.GetButtonDown("Jump") && (isGrounded || coyoteTimeCounter > 0))
@@ -233,8 +221,7 @@ public class PlayerScript : MonoBehaviour
         animator.SetFloat("MovementValue", movementAmount, 0.2f, Time.deltaTime);
     }
 
-    // The following code was written/modifief by Roshan
-    // Function keeps track of the lives left and transform Gunther to the starting pos when he falls
+    // Keeps track of the lives left and transform Gunther to the latest checkpoint position when he falls
     private void fall()
     {
         if (livesLeft > 0)
@@ -256,7 +243,6 @@ public class PlayerScript : MonoBehaviour
             transform.position = currentCheckpointPos;
 
             // Enable controller once Gunther is repositioned
-            // https://discussions.unity.com/t/character-controller-disable/3444
             // Re-enable the CharacterController after the position change
             controller.enabled = true;
         }
@@ -267,21 +253,19 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    // Display the remaining lives using livesLeft
     private void UpdateLivesLeftDisplay()
     {
-       // Display the remaining lives using livesLeft
        livesRemainingText.text = "Lives: " + livesLeft; 
     }
-    // End of code added by Roshan
 
     // Increased movement speed when Gunther collides with the heart
     public void SetMoveSpeed(float newSpeedAdjustment)
     {
         movementSpeed += newSpeedAdjustment;
-        StartCoroutine(ResumeNormalSpeed(newSpeedAdjustment)); // Added by Roshan
+        StartCoroutine(ResumeNormalSpeed(newSpeedAdjustment)); 
     }
 
-    // The following code was written by Roshan
     // Resume normal speed after a time delay of 5 seconds
     private IEnumerator ResumeNormalSpeed( float speedAdjustment)
     {
@@ -306,5 +290,4 @@ public class PlayerScript : MonoBehaviour
         // Set the latest vector 3 checkpoint as current
         currentCheckpointPos = latestCheckpointPos;
     }
-    // End of code added by Roshan
 }

@@ -1,4 +1,5 @@
-﻿#if UNITY_EDITOR
+﻿// External code obtained to fix the WebGL build
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;

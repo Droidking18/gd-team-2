@@ -1,28 +1,23 @@
-﻿// This script was added by Roshan
-// Handle whe win state
+﻿// Handle whe win state. Stop countdown when Gunther reaches the Office tower, puts him on
+// top of the Office building and display the wintext
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class WinState : MonoBehaviour
 {
-    // Text when Gunther Wins
     public TMP_Text winText;
-    // Get the countdown
     public Countdown countdown;
     // Total game time
     private float totalTime = 300f;
-    // Background music when Gunther reaches office!
     public AudioSource audioSource;
     // Store the position and rotation of Gunther
     private Vector3 winPosition = new Vector3(323f, 138f, 146.3f);
     private Quaternion winRotation = Quaternion.Euler(0f, -80f, 0f);
-    // Character controller component
     public CharacterController controller;
 
     void Start()
     {
-        // Clear the win text
         winText.text = "";
         audioSource = GetComponent<AudioSource>();
     }
@@ -45,9 +40,8 @@ public class WinState : MonoBehaviour
         // Stop countdown and show win text when Gunther collides with the final bottom support
         if (other.CompareTag("Player"))
         {
-            // Stop the countdown
             countdown.StopCountdown();
-            // Show the congratulations text
+            // Show the congratulations text and time it took to finish the game
             DisplayWinText();
             audioSource.Play();
         }
@@ -57,11 +51,9 @@ public class WinState : MonoBehaviour
     {
         // Count the duration of the game played
         float timeTaken = totalTime - countdown.CurrentTime;
-        // Get the minutes
         int min = Mathf.FloorToInt(timeTaken / 60);
-        // Get the seconds from remainder
         int sec = Mathf.FloorToInt(timeTaken % 60);
-        // Display the text and time taken
+        // Display the time taken to finish the game
         winText.text = "Congrats! You reached Office in " + min + " minute & " + sec + " seconds! Press Escape to view the Menu.";
     }
 }
