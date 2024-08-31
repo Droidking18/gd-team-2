@@ -2,17 +2,23 @@
 // Handle whe win state
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WinState : MonoBehaviour
 {
     // Text when Gunther Wins
-    public Text winText;
+    public TMP_Text winText;
     // Get the countdown
     public Countdown countdown;
     // Total game time
     private float totalTime = 300f;
     // Background music when Gunther reaches office!
     public AudioSource audioSource;
+    // Store the position and rotation of Gunther
+    private Vector3 winPosition = new Vector3(323f, 138f, 146.3f);
+    private Quaternion winRotation = Quaternion.Euler(0f, -80f, 0f);
+    // Character controller component
+    public CharacterController controller;
 
     void Start()
     {
@@ -23,6 +29,19 @@ public class WinState : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        PlayerScript playerScript = other.GetComponent<PlayerScript>();
+        if (playerScript != null)
+        {
+            controller.enabled = false;
+            // Updates the checkpoint on PlayerScript.cs (script from checkpoint.cs)
+            playerScript.UpdateLatestCheckpoint(winPosition);
+            // Put Gunther on top of the office building
+            playerScript.transform.position = winPosition;
+            // Rotate facing the city
+            playerScript.transform.rotation = winRotation;
+            controller.enabled = true;
+        }
+
         // Stop countdown and show win text when Gunther collides with the final bottom support
         if (other.CompareTag("Player"))
         {
@@ -31,7 +50,6 @@ public class WinState : MonoBehaviour
             // Show the congratulations text
             DisplayWinText();
             audioSource.Play();
-            countdown.StopCountdown();
         }
     }
 
@@ -44,6 +62,6 @@ public class WinState : MonoBehaviour
         // Get the seconds from remainder
         int sec = Mathf.FloorToInt(timeTaken % 60);
         // Display the text and time taken
-        winText.text = "Congrats! You reached Office in " + min + "minutes & " + sec + "seconds! Press Excape to view the Menu.";
+        winText.text = "Congrats! You reached Office in " + min + "minutes & " + sec + "seconds! Press Escape to view the Menu.";
     }
 }

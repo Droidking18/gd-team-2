@@ -7,15 +7,12 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        // Subscribes to the event
-        countdown.OnTimeExpired += HandleTimeExpired; 
+        countdown.OnTimeExpired += HandleTimeExpired; // Subscribe to the event
     }
 
     private void HandleTimeExpired()
     {
         Debug.Log("Time has expired!");
-
-        // Loads Game lost scene
-        SceneManager.LoadScene("YouLoseScene"); 
+        // Add game over logic here
     }
 }
