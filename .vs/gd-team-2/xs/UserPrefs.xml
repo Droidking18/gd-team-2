@@ -5,8 +5,8 @@
       <File FileName="Assets/OfficeSprint/Scripts/MenuController/MenuController.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/MenuController/PauseMenu.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/SoundController/SoundController.cs" />
-      <File FileName="Assets/OfficeSprint/Scripts/PlayerController/PlayerScript.cs" Line="201" Column="18" />
-      <File FileName="Assets/OfficeSprint/Scripts/WinState.cs" Line="65" Column="110" />
+      <File FileName="Assets/OfficeSprint/Scripts/PlayerController/PlayerScript.cs" />
+      <File FileName="Assets/OfficeSprint/Scripts/WinState.cs" Line="13" Column="23" />
       <File FileName="Assets/OfficeSprint/Scripts/SwingSound.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/AddLives.cs" />
       <File FileName="Assets/OfficeSprint/Scripts/FloatingBridge.cs" />
@@ -39,7 +39,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5b1a9870-5958-46ac-98ac-43dd6e79f8c2" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5a46c4b6-cf0f-4a07-92b4-9cf4e1e6107c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

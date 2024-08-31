@@ -62,6 +62,6 @@ public class WinState : MonoBehaviour
         // Get the seconds from remainder
         int sec = Mathf.FloorToInt(timeTaken % 60);
         // Display the text and time taken
-        winText.text = "Congrats! You reached Office in " + min + "minutes & " + sec + "seconds! Press Escape to view the Menu.";
+        winText.text = "Congrats! You reached Office in " + min + " minute & " + sec + " seconds! Press Escape to view the Menu.";
     }
 }
