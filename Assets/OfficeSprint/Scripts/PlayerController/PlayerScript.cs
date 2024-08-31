@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
     // Character jump height
     public float jumpHeight = 10f;
     // This sets a double jump max of 2 jumps
-    public int maxJumps = 2; 
+    public int maxJumps = 2;
     private int jumpsRemaining;
     // Time where player has left the ground and can still perform another jump
     public float coyoteTime = 0.2f;
@@ -79,6 +79,8 @@ public class PlayerScript : MonoBehaviour
     private Vector3 currentCheckpointPos;
     // Get the countdown
     private Countdown countdown;
+    // Get the winstate
+    private WinState winstate;
     // Game state when paused
     private bool pause;
     // End of code written by Roshan
@@ -143,7 +145,7 @@ public class PlayerScript : MonoBehaviour
         {
             ccStepOffset = 0;
             velocity.y += (gravity * 2) * Time.deltaTime;
-            coyoteTimeCounter -= Time.deltaTime;     
+            coyoteTimeCounter -= Time.deltaTime;
         }
         else
         {
@@ -178,7 +180,7 @@ public class PlayerScript : MonoBehaviour
                 // Play the falling sound
                 audioSource.clip = fallAudioClip;
                 audioSource.Play();
-                playFallAudio = true; 
+                playFallAudio = true;
             }
         }
         else
@@ -200,8 +202,7 @@ public class PlayerScript : MonoBehaviour
         {
             Vector3 moveDirection = Vector3.ClampMagnitude(forwardMovement, 1f);
             controller.Move(moveDirection * 0 * Time.deltaTime);
-        } else
-        {
+        } else {
             Vector3 moveDirection = Vector3.ClampMagnitude(forwardMovement, 1f);
             controller.Move(moveDirection * movementSpeed * Time.deltaTime);
         }
@@ -213,7 +214,7 @@ public class PlayerScript : MonoBehaviour
         // Modified by Roshan
         // Rotation
         // https://docs.unity3d.com/ScriptReference/Input.GetAxis.html
-        float mouseHorizontal = (rotationSpeed / 30) * Input.GetAxis("Mouse X");
+        float mouseHorizontal = (rotationSpeed / 50) * Input.GetAxis("Mouse X");
         float keyboardRotation = horizontal * rotationSpeed * Time.deltaTime;
         transform.Rotate(Vector3.up, mouseHorizontal + keyboardRotation);
         // End of code modified by Roshan

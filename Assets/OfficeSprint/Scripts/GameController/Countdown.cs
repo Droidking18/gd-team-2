@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
@@ -25,6 +24,7 @@ public class Countdown : MonoBehaviour
 
     private bool timerRunning = false;
     public bool gamePaused = true;
+    public bool gameEnded = false;
     // End of code written by Roshan
 
 
@@ -92,8 +92,9 @@ public class Countdown : MonoBehaviour
     // Update the flags and stop the music
     public void StopCountdown()
     {
+        gamePaused = true; // does not work for winstate
+        gameEnded = true; // does not work for winstate
         timerRunning = false;
-        gamePaused = true;
         // Stop music
         if (backgroundMusic != null)
         {
